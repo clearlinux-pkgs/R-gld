@@ -1,0 +1,184 @@
+2.6.2
+gl.check.lambda bugfix
+
+2.6.1
+Add LambdaZeroEpsilon argument to fit.gpd to allow wider range of Lambda values to count as zero, and thus Quantile Based Skew Logistic.  This is necessary because for abs(lambda) < 1e-15, SE(lambda) can be over 5e5
+
+Correct gl.check.lambda, which was missing correct parameter values in regions 1 and 2 of the Ramberg & Schmeiser type
+
+See NEWSfor changes from 2.4.2 to 2.6
+
+2.4.1
+Fix pgl() example comment - inverse.eps had defaulted to .Machine$double.eps since version 1.9
+
+2.4
+Method of L Moment estimates for the gpd type
+
+2.3.3 
+print.starship, summary.starship and plot.starship now display 
+estimation method and gld type
+
+2.3.2 
+optimisation in fkml.moments.val is now constrained to the region on lambda3, lambda4 space where moments exist.  
+Documentation for moment fitting notes multiple parameter sets with the same first 4 moments
+
+2.3.1
+Bugfix - plotgld() was giving warnings due to use of the deprecated qdgl
+
+2.3
+Added calculation of moments for FKML given parameters and fitting 
+FKML with moments (given moment values - not calculating the moments yet)
+Function qdgl deprecated and replaced with dqgl as it actually calculates the density quantile function
+
+2.2.1
+Bugfixes - DLA wasn't being called correctly
+Also includes some C changes for fit.fkml.  The C code now assumes the data to be fitted has already been sorted
+
+2.2
+New estimation methods for the FKML parameterisation:
+Numerical MLE, Maximum Spacings Product, Titteringtons, L Moments,
+TL Moments, Distributional Least Absolutes
+Starship has C speedups from Ben Dean, in fit.fkml function
+fit.fkml is called by starship() if param="fkml"
+Bugfixes - parameter checking error messages
+
+2.1 
+C speedups from Ben Dean (internal version)
+
+2.0.1 
+removed \usage lines wider than 90 characters
+
+2.0
+Added VSK/GPD parameterisation (all basic functions and starship)
+Removed default values of initgrid in starship.adaptivegrid() - users now 
+need to specify an initial grid if using this function.  starship() 
+still provides the same default when starship.adaptivegrid is called.
+C error message improvements
+Changes to the way the default initgrid is used in the starship function
+
+1.9.4
+Debugged
+.First.lib removed 
+stderr references removed
+
+1.9.3
+Debug plotgld() for pathological densities
+
+1.9.2
+NAMESPACE added
+
+1.9.1
+Bugfix: plotgld was wrongly labelling some densities [such as
+c(0,1,4,5),param="rs"] as pathological, which should be restricted to those
+like c(0, 1, 0.03, 0.7), param = "rs".
+Bugfix to plot.starship code and documentation
+
+1.9
+Provided qdgl() as a duplicate of dqgl() because these are actually the quantile density functions, not the density quantile functions
+Allowed for the FKML parameterisation to be referred to as either FKML or FMKL to allow for the different uses in the literature.
+Added a plot method for the starship class.  This compares the fitted gld to the data.
+Added add argument to plotgld() and plotglc()
+Changed inverse.eps default to .Machine$double.eps
+
+1.8.5
+Added QQ plot to compare two sets of parameter values
+
+1.8.4
+Added "starship" class, with methods for print() and summary()
+Documentation fixes
+
+1.8.3
+Fixed bug stopping functions working if the parameter values are extracted from a dataframe
+Added ability to set inverse.eps in starship() - default is still 1e-08
+really fixed dots.end bug in plotgld
+
+1.8.2
+Fixed dots.end bug in plotgld
+Changed exit() to error() in C code
+
+1.8.1
+plotgl warning (1.8 change) bugfix
+Removed the infinite parameter values check
+
+1.8
+plotgl warns about pathological densities and plots slightly differently 
+where the theoretical (finite) minimum is actually a long way 
+from Q(.Machine$double.eps) or similar with the maximum
+Bugfix: DOS CR characters in R file causing problem on alpha
+
+1.7.2
+Bugfix: no visible binding for param in .qdgl.fmkl and friends
+
+1.7.1
+Bugfixes: initgrid default value for RS parameterisation
+Documentation fix starship
+
+1.7
+Added support for the 5 parameter FMKL version (FM5 parameterisation)
+Changed syntax for starship.adaptivegrid
+Allowed parameters to be given as a vector, rather than with individual 
+arguments
+Fixed bug which could have slowed F(x) calculation for pgl(...,param="fmkl") 
+when lambda4=0, lambda3!=0
+
+1.6
+Documentation Example fixes
+
+1.5
+Fixed "assign long to int" bug in C code
+
+1.4
+Documentation fixes
+Correction of parscale in optim section of starship()
+
+1.3
+Added qqgl - make QQ plots for data against specified gld
+
+1.2
+INDEX file correction
+
+1.1
+Documentation corrections
+
+1.0.1
+Permissions correction
+
+1.0.0
+starship estimation, using grid or grid and optim
+Range checking
+Corrections from Steve Su
+
+0.9
+Corrections from David Scott
+Added plotgld
+
+0.8 
+improved error messages
+Fixed bug in qgl and qdgl for parameterisation RS (was using FMKL
+parameterisation values even if RS was requested)
+added alias for GeneralisedLambdaDistribution to
+GeneralisedLambdaDistribution.Rd as requested by Kurt
+
+0.7 
+Note that R CMD build complains about the INDEX file, but I want it the way I
+have it
+R CMD check changes to .Rd files
+
+0.6
+URL changes to Newcastle
+
+0.5 
+Took the mac makefile out again
+
+0.4
+Typo correction in man/
+Added mac makefile
+Added Maintainer field
+Corrections to DESCRIPTION
+
+0.3 
+First released to CRAN
+
+0.2
+0.1
+Internal versions 

@@ -4,7 +4,7 @@
 #
 Name     : R-gld
 Version  : 2.6.2
-Release  : 2
+Release  : 3
 URL      : https://cran.r-project.org/src/contrib/gld_2.6.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/gld_2.6.2.tar.gz
 Summary  : Estimation and Use of the Generalised (Tukey) Lambda
@@ -12,6 +12,7 @@ Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-gld-lib = %{version}-%{release}
 Requires: R-e1071
+Requires: R-lmom
 BuildRequires : R-e1071
 BuildRequires : R-lmom
 BuildRequires : buildreq-R
@@ -49,10 +50,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1611594588
+export SOURCE_DATE_EPOCH=1611680222
 
 %install
-export SOURCE_DATE_EPOCH=1611594588
+export SOURCE_DATE_EPOCH=1611680222
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "

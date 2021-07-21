@@ -4,7 +4,7 @@
 #
 Name     : R-gld
 Version  : 2.6.2
-Release  : 8
+Release  : 9
 URL      : https://cran.r-project.org/src/contrib/gld_2.6.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/gld_2.6.2.tar.gz
 Summary  : Estimation and Use of the Generalised (Tukey) Lambda
